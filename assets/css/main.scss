@@ -1,9 +1,277 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
-search: false
 ---
 
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/* Custom Styles */
+
+// 전체적인 폰트 개선
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+// 헤더 스타일링
+.masthead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+  .site-title {
+    font-weight: 700;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: white !important;
+  }
+
+  .site-subtitle {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9em;
+    margin-top: 0.2em;
+  }
+}
+
+// 포스트 카드 스타일
+.archive__item {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 2em;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  }
+
+  .archive__item-teaser {
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+
+    img {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.03);
+    }
+  }
+
+  .archive__item-body {
+    padding: 1.5em;
+  }
+
+  .archive__item-title {
+    margin-bottom: 0.5em;
+    font-size: 1.3em;
+    font-weight: 600;
+
+    a {
+      color: #2c3e50;
+      text-decoration: none;
+
+      &:hover {
+        color: #667eea;
+      }
+    }
+  }
+
+  .archive__item-excerpt {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+}
+
+// 사이드바 스타일링
+.sidebar {
+  .author__avatar {
+    img {
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+  }
+
+  .author__bio {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 1em;
+  }
+
+  .author__urls {
+    .btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      border-radius: 20px;
+      color: white;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      }
+    }
+  }
+}
+
+// 목차 스타일링
+.toc {
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+  border: 1px solid #e1e8ed;
+  border-radius: 12px;
+  padding: 1.5em;
+
+  .toc__title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1em;
+  }
+
+  .toc__menu {
+    a {
+      color: #5a6c7d;
+      text-decoration: none;
+      padding: 0.3em 0;
+      display: block;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: #667eea;
+        background: rgba(102, 126, 234, 0.1);
+        padding-left: 0.5em;
+      }
+    }
+  }
+}
+
+// 코드 블록 스타일링
+.highlight {
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.5em 0;
+
+  pre {
+    border-radius: 8px;
+    padding: 1.5em;
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+}
+
+// 인라인 코드 스타일링
+code {
+  background: #f1f3f4;
+  color: #e74c3c;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+// 버튼 스타일링
+.btn {
+  border-radius: 25px;
+  padding: 0.6em 1.5em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &--primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+  }
+}
+
+// 태그 스타일링
+.taxonomy__item {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.3em 0.8em;
+  border-radius: 15px;
+  font-size: 0.8em;
+  margin: 0.2em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    color: white;
+  }
+}
+
+// 푸터 스타일링
+.page__footer {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  color: white;
+
+  .page__footer-copyright {
+    color: rgba(255,255,255,0.8);
+  }
+
+  .social-icons {
+    .fab, .fas {
+      color: rgba(255,255,255,0.8);
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: white;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// 반응형 개선
+@media (max-width: 768px) {
+  .archive__item {
+    margin-bottom: 1.5em;
+
+    .archive__item-body {
+      padding: 1em;
+    }
+
+    .archive__item-title {
+      font-size: 1.1em;
+    }
+  }
+
+  .masthead .site-title {
+    font-size: 1.3em;
+  }
+}
+
+// 다크모드 대응 (mint 테마용)
+@media (prefers-color-scheme: dark) {
+  .archive__item {
+    background: #2d3748;
+    color: #e2e8f0;
+
+    .archive__item-title a {
+      color: #e2e8f0;
+
+      &:hover {
+        color: #81e6d9;
+      }
+    }
+
+    .archive__item-excerpt {
+      color: #a0aec0;
+    }
+  }
+
+  code {
+    background: #4a5568;
+    color: #f687b3;
+  }
+}
